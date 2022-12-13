@@ -3,6 +3,13 @@ function fetchBooks() {
   
 }
 
+function fetchBooks() {
+  const fetchBook = fetch('https://anapioficeandfire.com/api/books');
+  return fetchBook.then(response => {
+  return response.json()
+  }).then(data => {renderBooks(data)})
+}
+
 function renderBooks(books) {
   const main = document.querySelector('main');
   books.forEach(book => {
